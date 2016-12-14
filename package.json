@@ -1,0 +1,12 @@
+{
+  "name": "moosebot",
+  "version": "0.0.1",
+  "description": "MooseBot is a Discord Bot created by Moosecoop, a gamer, programmer, student and Discord enthusiast",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Moosecoop",
+  "license": "ISC"
+}
