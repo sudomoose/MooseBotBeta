@@ -44,10 +44,7 @@ client.on('message', message => { //commands
       } else
       if (command === "help") {
       message.channel.sendMessage("this feature is not yet finished! sorry");
-    }
-
-
-  } //says any text stated after $say //kicks user mentioned after "kick "
+    } //says any text stated after $say //kicks user mentioned after "kick "
   });
 
 client.login(config.token); //connects to MooseBot NA Node bot user accnt
