@@ -2,6 +2,7 @@ const Discord = require('discord.js'); //loads discord.js package
 const client = new Discord.Client(); //creates client
 
 const config = require("./config.json"); //loads config.json
+const help = require("./commandhelp.json"); //loads commandhelp.json
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
@@ -40,30 +41,9 @@ client.on('message', message => { //commands
         message.user.sendMessage("You Do Not Have The Required Permissions to do this!");
         message.channel.sendMessage("This feature is not yet complete! Please check back later!");
           message.channel.sendMessage("This feature is not yet complete! Please check back later!");
-      }else
-
-  if (command === "kick") {
-    if(msg.channel.permissionsFor(msg.member).hasPermission("kickMembers")) {
-      if(message.mentions.users.size === 0) {
-        message.user.sendMessage("this feature is not yet complete! please check back later!");
-        return message.reply("Please mention a user to kick") {
-    }
-    let kickMember = message.guild.member(message.mention.users.first());
-    if(!kickMember) {
-        return message.reply("Error: The user ${kickMember} does not exist!");
-      }
-
-      }
-
-      }else {
-        return message.reply("Error: You do not have the permissions to do that! You need: `kickMembers`, if you believe this is an error please contact the server owner!");
-      }
-    }
-
-    else
-
-    if (command === help) {
-
+      } else
+      if (command === "help") {
+      message.channel.sendMessage("this feature is not yet finished! sorry");
     }
 
 
