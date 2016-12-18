@@ -27,9 +27,12 @@ client.on('message', message => { //commands
   if(command === "say") {
         message.channel.sendMessage("${message.user} says: " + args.join(" "));
     } else //sends any text after "say " to channel
-
+     
   if(command === "ping") { //returns "pong"
-        message.channel.sendMessage(`Pong! \`${Date.now() - message.createdTimeStamp} ms\``);
+  let pingms = Date.now() - message.createdTimeStamp;
+  console.log(pingms);
+  let pingmsg = "Pong! `${pingms} ms`";
+        message.channel.sendMessage(pingmsg);
     } else
 
   if(command === "about") {
@@ -51,9 +54,4 @@ client.login(config.token); //connects to MooseBot NA Node bot user accnt
 client.on('GuildMemberAdd', member => {
   let guild = member.guild;
   guild.defaultChannel.sendMessage(`Welcome ${member.user} to ${member.guild}`);
-}); //welcomes new guild members
-
-/*client.on('guildCreate',  guild => {
-  guild.defaultChannel.sendMessage(``${client.user} Has Joined ${guild.name}``)
-  console.log(``${client.user} Has Joined ${guild.name}``);
-})); */
+});
