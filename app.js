@@ -2,7 +2,7 @@ const Discord = require('discord.js'); //loads discord.js package
 const client = new Discord.Client(); //creates client
 
 const config = require("./config.json"); //loads config.json
-const help = require("./commandhelp.json"); //loads commandhelp.json
+//const help = require("./commandhelp.json"); //loads commandhelp.json
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
@@ -30,7 +30,7 @@ client.on('message', message => { //commands
     } else //sends any text after "say " to channel
 
   if(command === "ping") { //returns "pong"
-        message.channel.sendMessage('pong');
+        message.channel.sendMessage(`Pong! \`${Date.now() - message.createdTimeStamp} ms\``);
     } else
 
   if(command === "about") {
@@ -44,7 +44,7 @@ client.on('message', message => { //commands
       } else
       if (command === "help") {
       message.channel.sendMessage("this feature is not yet finished! sorry");
-    } //says any text stated after $say //kicks user mentioned after "kick "
+    }
   });
 
 client.login(config.token); //connects to MooseBot NA Node bot user accnt
@@ -54,19 +54,7 @@ client.on('GuildMemberAdd', member => {
   guild.defaultChannel.sendMessage(`Welcome ${member.user} to ${member.guild}`);
 }); //welcomes new guild members
 
-client.on('guildCreate',  guild => {
-  console.log((`${client.user} Has Joined ${guild.name}`));
-}); //bot user (self) guild join accouncment
-
-/*client.on("presenceUpdate", (oldMember, newMember) => { //disable this code
-  let guild = newMember.guild;
-  let playRole = guild.roles.find("name", "Playing Overwatch");
-  if(!playRole) return;
-
-  if(newMember.user.presence.game && newMember.user.presence.game.name === "Overwatch") {
-    newMember.addRole(playRole);
-  } else if (!newMember.user.presence.game && newMember.roles.has(playRole.id)) {
-    newMember.removeRole(playRole);
-  }
-});
-*/
+/*client.on('guildCreate',  guild => {
+  guild.defaultChannel.sendMessage(``${client.user} Has Joined ${guild.name}``)
+  console.log(``${client.user} Has Joined ${guild.name}``);
+})); */
