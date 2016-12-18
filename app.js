@@ -2,11 +2,10 @@ const Discord = require('discord.js'); //loads discord.js package
 const client = new Discord.Client(); //creates client
 
 const config = require("./config.json"); //loads config.json
-//const help = require("./commandhelp.json"); //loads commandhelp.json
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
-  console.log("ya haven`t screwed up yet!")
+  console.log("ya haven`t screwed up yet!");
 });
 
 client.on('message', message => { //commands
@@ -30,7 +29,8 @@ client.on('message', message => { //commands
     } else //sends any text after "say " to channel
 
   if(command === "ping") { //returns "pong"
-        message.channel.sendMessage(`Pong! \`${Date.now() - message.createdTimeStamp} ms\``);
+        var msgSentAt = message.createdTimeStamp;
+        message.channel.sendMessage(`Pong! \`${Date.now() - message.createdTimeStamp} ms \``);
     } else
 
   if(command === "about") {
