@@ -48,8 +48,9 @@ client.on('message', message => { //commands
       message.channel.sendMessage("this feature is not yet finished! sorry");
     }
   });
-
-client.login(config.token); //connects to MooseBot NA Node bot user accnt
+s
+client.login(token.moosebotna); //connects to MooseBot NA Node bot user accnt
+console.log("connected to bot user: MooseBot NA");
 
 client.on('GuildMemberAdd', member => {
   let guild = member.guild;
