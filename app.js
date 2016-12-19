@@ -27,7 +27,7 @@ client.on('message', message => { //commands
   if(command === "say") {
         message.channel.sendMessage("${message.user} says: " + args.join(" "));
     } else //sends any text after "say " to channel
-     
+
   if(command === "ping") { //returns "pong"
   let pingms = Date.now() - message.createdTimeStamp;
   console.log(pingms);
