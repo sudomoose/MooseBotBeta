@@ -30,7 +30,6 @@ client.on('message', message => { //commands
 
   if(command === "ping") { //returns "pong"
   let pingms = Date.now() - message.createdTimeStamp;
-  console.log(pingms);
   let pingmsg = "Pong! `${pingms} ms`";
         message.channel.sendMessage(pingmsg);
     } else
