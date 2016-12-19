@@ -6,7 +6,7 @@ const token = require("./token.json"); //loads token.json
 const region = require("./region.json"); //loads region.json
 
 client.on('ready', () => {
-  console.log(`[${new Date()()}]:MooseBot init successful`);
+  console.log(`[${new Date()}]:MooseBot init successful`);
 });
 
 client.on('message', message => { //commands
