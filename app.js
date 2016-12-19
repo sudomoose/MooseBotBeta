@@ -5,9 +5,8 @@ const config = require("./config.json"); //loads config.json
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
-  console.log("ya haven`t screwed up yet!");
+  client.setStreaming('HAPPY HOLIDAYS', 'https://www.twitch.tv/monstercat');
 });
-
 client.on('message', message => { //commands
   if(message.author.bot) return; //checks if bot user (self) is author
   if(!message.content.startsWith(config.prefix)) return; //check if message starts with config.prefix
