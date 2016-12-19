@@ -70,6 +70,7 @@ client.on('GuildMemberAdd', member => {
 
 client.on('GuildCreate', member => {
   console.log("guildcreate funcionality is not yet complete! Please check back later");
+  guild.defaultChannel.sendMessage(`@${client.user.name} has joined ${guild.name}`);
 });
 
 client.on('GuildDelete', guild => {
