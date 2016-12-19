@@ -55,3 +55,7 @@ client.on('GuildMemberAdd', member => {
   let guild = member.guild;
   guild.defaultChannel.sendMessage(`Welcome ${member.user} to ${member.guild}`);
 });
+
+client.on('GuildCreate', member => {
+  console.log("guildcreate funcionality is not yet complete! Please check back later");
+});
