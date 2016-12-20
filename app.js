@@ -5,7 +5,7 @@ const config = require("./config.json"); //loads config.json
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
-  client.setStreaming('HAPPY HOLIDAYS', 'https://www.twitch.tv/monstercat');
+  client.setGame(`Fast Response Times for ${bot.guilds.size}`, "http://www.twitch.tv/monstercat");
 });
 client.on('message', message => { //commands
   if(message.author.bot) return; //checks if bot user (self) is author
