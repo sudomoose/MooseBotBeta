@@ -2,11 +2,14 @@ const Discord = require('discord.js'); //loads discord.js package
 const client = new Discord.Client(); //creates client
 
 const config = require("./config.json"); //loads config.json
+const token = require("./token.json"); //loads token.json
+const region = require("./region.json"); //loads region.json
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
   console.log(`Currently serving ${bot.guilds.size} servers`);
   client.setGame(`Fast Response Times for ${bot.guilds.size}`, "http://www.twitch.tv/monstercat");
+  console.log(`[${new Date()}]:MooseBot init successful`);
 });
 client.on('message', message => { //commands
   if(message.author.bot) return; //checks if bot user (self) is author
@@ -30,6 +33,8 @@ client.on('message', message => { //commands
 
   if(command === "ping") { //returns "pong"
   let pingms = Date.now() - message.createdTimeStamp;
+  let pingms = Date.Now() - message.createdTimeStamp;
+  console.log(pingms);
   let pingmsg = "Pong! `${pingms} ms`";
         message.channel.sendMessage(pingmsg);
     } else
@@ -48,9 +53,30 @@ client.on('message', message => { //commands
     }
   });
 
-client.login(config.token); //connects to MooseBot NA Node bot user accnt
+
+
+if(region.config === "EU") {
+  client.login(token.EU);
+  console.log(`[${new Date()}]: Now acting as MooseBot EU`);
+} else if (region.config === "BETA") {
+  client.login(token.BETA);
+  console.log("Now acting as MooseBot BETA");
+} else {
+  client.login(token.NA);
+  console.log("Now Acting as MooseBot NA");
+}
 
 client.on('GuildMemberAdd', member => {
   let guild = member.guild;
   guild.defaultChannel.sendMessage(`Welcome ${member.user} to ${member.guild}`);
 });
+
+
+client.on('GuildCreate', member => {
+  console.log("guildcreate funcionality is not yet complete! Please check back later");
+  guild.defaultChannel.sendMessage(`@${client.user.name} has joined ${guild.name}`);
+});
+
+client.on('GuildDelete', guild => {
+  console.log(`[${new Date()}]: Left ${guild.name}`);
+})
