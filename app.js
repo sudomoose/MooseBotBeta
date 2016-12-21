@@ -36,12 +36,11 @@ client.on('message', message => { //commands
 
   //} else
   if(command === "ping") {
-        const ping = new Date();
-        message.channel.sendMessage("Pong!").then(message => {
-        const pong = new Date() - ping;
-        message.updateMessage(`Pong! \`${pong}ms\``);
-        })
-        message.channel.sendMessage(`Pong! \`${Date.now() - message.createdTimeStamp} ms\``);
+        const timeInMs = Date.now();
+        const ping = message.createdAtTimestamp - timeInMs;
+        console.log(`ping: ${ping}`);
+        message.channel.sendMessage(`Pong! \`${ping}ms\``);
+
     } else
 
   if(command === "about") {
@@ -57,25 +56,25 @@ client.on('message', message => { //commands
         var message = command.splice(1).join(' ');
         client.Guilds.forEach((guild) => {
         guild.generalChannel.sendMessage(message);
-      })
-    }
-    }
-};
+        })
+      }
+  }
+});
 
 
-  if(region.config === "EU") {
+/*  if(region.config === "EU") {
   client.login(token.EU);
   console.log(`[${new Date()}]: Now acting as MooseBot EU`);
 } else if (region.config === "BETA") {
   client.login(token.BETA);
   console.log(`[${new Date()}]: Now acting as MooseBot BETA`);
-} else {
+} else if (region.config === "NA") {
   client.login(token.NA);
   console.log(`[${new Date()}]: Now acting as MooseBot NA`);
 } else {
   console.log(`[${new Date()}]: Unable to log in! No bot user specified in config.json 3:13!`);
-}
-
+}*/
+client.login(token.NA);
 
 client.on('GuildMemberAdd', member => {
   let guild = member.guild;
@@ -90,4 +89,4 @@ client.on('GuildCreate', member => {
 
 client.on('GuildDelete', guild => {
   console.log(`[${new Date()}]: Left ${guild.name}`);
-})});
+});
