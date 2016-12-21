@@ -8,7 +8,6 @@ const region = require("./region.json"); //loads region.json
 client.on('ready', () => {
   console.log('MooseBot init successful');
   console.log(`Currently serving ${client.guilds.size} servers`);
-  client.setGame()
   console.log(`[${new Date()}]:MooseBot init successful`);
 });
 
@@ -28,17 +27,22 @@ client.on('message', message => { //commands
 
   if(command === "about") {
         message.channel.sendMessage("MooseBot is a Discord Bot created by Moosecoop, a gamer, programmer, student and Discord enthusiast");
-    } else  //sends about info to channel
+    } else
 
-  if(command === "purge") { //purges ammount stated after "purge " of messages
-console.log("purge command used, not yet complete");
-      } else
-
-      if (command === "help") {
+  if (command === "help") {
       message.channel.sendMessage("this feature is not yet finished! sorry");
-    }
-  });
+    } else
 
+  if(command === "msmsg") {
+      if(message.author.id == config.ownerID){
+        var message = command.splice(1).join(' ');
+        client.Guilds.forEach((guild) => {
+        guild.generalChannel.sendMessage(message);
+      })
+
+      }
+
+  };
 
 
 if(region.config === "EU") {
@@ -66,4 +70,4 @@ client.on('GuildCreate', member => {
 
 client.on('GuildDelete', guild => {
   console.log(`[${new Date()}]: Left ${guild.name}`);
-})
+})});
