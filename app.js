@@ -22,7 +22,7 @@ client.on('message', message => { //commands
   let args = message.content.split(" ").slice(1); //allows and creates arguments
 
   if(command === "ping") {
-        message.channel.sendMessage(`Pong! \`${Date.now - message.createdTimeStamp} ms\``);
+        message.channel.sendMessage(`Pong! \`${Date.now() - message.createdTimeStamp} ms\``);
     } else
 
   if(command === "about") {
