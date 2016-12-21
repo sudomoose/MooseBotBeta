@@ -4,6 +4,7 @@ const client = new Discord.Client(); //creates client
 const config = require("./config.json"); //loads config.json
 const token = require("./token.json"); //loads token.json
 const region = require("./region.json"); //loads region.json
+const prefix = config.prefix;
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
@@ -16,7 +17,7 @@ client.on('message', message => { //commands
   if(message.author.bot) return; //checks if bot user (self) is author
   if(!message.content.startsWith(config.prefix)) return; //check if message starts with config.prefix
 
-  let command = message.content.split(" ")[0]; 
+  let command = message.content.split(" ")[0];
   command = command.slice(config.prefix.length);
 
   let args = message.content.split(" ").slice(1); //allows and creates arguments
@@ -26,16 +27,21 @@ client.on('message', message => { //commands
         message.channel.sendMessage(`Pong! \`${Date.now - message.createdTimeStamp} ms\``);
     } else */
 
-  if(command === "ping") {
-    const ping = new Date();
-    message.channel.sendMessage("Pong!").then(msg => {
+  //if(command === "ping") {
+    /*const ping = new Date();
+    message.channel.sendMessage("Pong!").then(message => {
     const pong = new Date() - ping;
     msg.edit(`Pong! \`${pong}ms\``);
-    });
+    });*/
 
-  } else
+  //} else
 
   if(command === "ping") {
+        const ping = new Date();
+        message.channel.sendMessage("Pong!").then(message => {
+        const pong = new Date() - ping;
+        message.updateMessage(`Pong! \`${pong}ms\``);
+        })
         message.channel.sendMessage(`Pong! \`${Date.now() - message.createdTimeStamp} ms\``);
     } else
 
@@ -43,8 +49,8 @@ client.on('message', message => { //commands
         message.channel.sendMessage("MooseBot is a Discord Bot created by Moosecoop, a gamer, programmer, student and Discord enthusiast");
     } else
 
-  if (command === "help") {
-      message.channel.sendMessage("this feature is not yet finished! sorry");
+  if(command === "help") {
+      message.user.sendMessage(`COMMANDS: \n \`${prefix}ping\` - returns the ping in milliseconds\n \`${prefix}about\` - returns info about MooseBot and it's creator \n \`${prefix}invite\` - returns link to invite MooseBot to your server`);
     } else
 
   if(command === "msmsg") {
@@ -53,21 +59,22 @@ client.on('message', message => { //commands
         client.Guilds.forEach((guild) => {
         guild.generalChannel.sendMessage(message);
       })
+    }
+    }
+    };
 
-      }
 
-  };
-
-
-if(region.config === "EU") {
+  if(region.config === "EU") {
   client.login(token.EU);
   console.log(`[${new Date()}]: Now acting as MooseBot EU`);
 } else if (region.config === "BETA") {
   client.login(token.BETA);
-  console.log("Now acting as MooseBot BETA");
+  console.log(`[${new Date()}]: Now acting as MooseBot BETA`);
 } else {
   client.login(token.NA);
-  console.log("Now Acting as MooseBot NA");
+  console.log(`[${new Date()}]: Now acting as MooseBot NA`);
+} else {
+  console.log(`[${new Date()}]: Unable to log in! No bot user specified in config.json 3:13!`);
 }
 
 
