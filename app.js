@@ -21,9 +21,18 @@ client.on('message', message => { //commands
 
   let args = message.content.split(" ").slice(1); //allows and creates arguments
 
-  if(command === "ping") {
+  /*if(command === "ping") {
         message.channel.sendMessage(`Pong! \`${Date.now - message.createdTimeStamp} ms\``);
-    } else
+    } else */
+
+  if(command === "ping") {
+    const ping = new Date();
+    message.channel.sendMessage("Pong!").then(msg => {
+    const pong = new Date() - ping;
+    msg.edit(`Pong! \`${pong}ms\``);
+    });
+
+  } else
 
   if(command === "about") {
         message.channel.sendMessage("MooseBot is a Discord Bot created by Moosecoop, a gamer, programmer, student and Discord enthusiast");
