@@ -36,3 +36,20 @@ if (message.content.startsWith(prefix + "$broadcast"))  //must use &$broadcast
               let command = message.content.split(" ")[0]
               command = command.slice(prefix.length);
               console.log(command);
+
+
+
+
+
+  /*if(command === "ping") {
+        message.channel.sendMessage(`Pong! \`${Date.now - message.createdTimeStamp} ms\``);
+    } else */
+
+  //if(command === "ping") {
+    /*const ping = new Date();
+    message.channel.sendMessage("Pong!").then(message => {
+    const pong = new Date() - ping;
+    msg.edit(`Pong! \`${pong}ms\``);
+    });*/
+
+  //} else

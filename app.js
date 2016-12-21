@@ -12,6 +12,28 @@ client.on('ready', () => {
   console.log(`[${new Date()}]:MooseBot init successful`);
 });
 
+client.on('connect', () => {
+  console.log(`[${new Date()}]: Connected`);
+});
+
+client.on('disconnect', () => {
+  console.log(`[${new Date()}]: Disconnected`);
+});
+
+
+  if(config.region === "EU") {
+  client.login(token.EU);
+  console.log(`[${new Date()}]: Now acting as MooseBot EU`);
+} else if (config.region === "BETA") {
+  client.login(token.BETA);
+  console.log(`[${new Date()}]: Now acting as MooseBot BETA`);
+} else if (config.region === "NA") {
+  client.login(token.NA);
+  console.log(`[${new Date()}]: Now acting as MooseBot NA`);
+} else {
+  console.log(`[${new Date()}]: Unable to log in! No bot user specified in config.json 3:13!`);
+}
+
 
 client.on('message', message => { //commands
   if(message.author.bot) return; //checks if bot user (self) is author
@@ -23,21 +45,10 @@ client.on('message', message => { //commands
   let args = message.content.split(" ").slice(1); //allows and creates arguments
 
 
-  /*if(command === "ping") {
-        message.channel.sendMessage(`Pong! \`${Date.now - message.createdTimeStamp} ms\``);
-    } else */
 
-  //if(command === "ping") {
-    /*const ping = new Date();
-    message.channel.sendMessage("Pong!").then(message => {
-    const pong = new Date() - ping;
-    msg.edit(`Pong! \`${pong}ms\``);
-    });*/
-
-  //} else
   if(command === "ping") {
         const timeInMs = Date.now();
-        const ping = message.createdAtTimestamp - timeInMs;
+        const ping = timeInMs - message.createdAtTimestamp;
         console.log(`ping: ${ping}`);
         message.channel.sendMessage(`Pong! \`${ping}ms\``);
 
@@ -62,29 +73,16 @@ client.on('message', message => { //commands
 });
 
 
-/*  if(region.config === "EU") {
-  client.login(token.EU);
-  console.log(`[${new Date()}]: Now acting as MooseBot EU`);
-} else if (region.config === "BETA") {
-  client.login(token.BETA);
-  console.log(`[${new Date()}]: Now acting as MooseBot BETA`);
-} else if (region.config === "NA") {
-  client.login(token.NA);
-  console.log(`[${new Date()}]: Now acting as MooseBot NA`);
-} else {
-  console.log(`[${new Date()}]: Unable to log in! No bot user specified in config.json 3:13!`);
-}*/
-client.login(token.NA);
 
 client.on('GuildMemberAdd', member => {
   let guild = member.guild;
-  guild.defaultChannel.sendMessage(`Welcome ${member.user} to ${member.guild}`);
+  guild.defaultChannel.sendMessage(`Welcome **${member.user.username}** to **${member.guild}**!`);
 });
 
 
 client.on('GuildCreate', member => {
   console.log("guildcreate funcionality is not yet complete! Please check back later");
-  guild.defaultChannel.sendMessage(`@${client.user.name} has joined ${guild.name}`);
+  gguild.defaultChannel.sendMessage(`**${client.username}** has joined **${guild.name}**! Type \`${config.prefix}help\` for help`);
 });
 
 client.on('GuildDelete', guild => {
