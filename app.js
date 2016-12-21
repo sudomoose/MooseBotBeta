@@ -60,7 +60,7 @@ client.on('message', message => { //commands
       })
     }
     }
-    };
+    }
 
 
   if(region.config === "EU") {
