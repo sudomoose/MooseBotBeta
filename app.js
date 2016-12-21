@@ -7,7 +7,7 @@ const region = require("./region.json"); //loads region.json
 
 client.on('ready', () => {
   console.log('MooseBot init successful');
-  console.log(`Currently serving ${bot.guilds.size} servers`);
+  console.log(`Currently serving ${client.guilds.size} servers`);
   client.setGame()
   console.log(`[${new Date()}]:MooseBot init successful`);
 });
