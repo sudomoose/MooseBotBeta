@@ -5,7 +5,7 @@ const config = require("./config.json"); //loads config.json
 const token = require("./token.json"); //loads token.json
 const region = require("./region.json"); //loads region.json
 const prefix = config.prefix;
-//egh why dis no work
+
 client.on('ready', () => {
   console.log('MooseBot init successful');
   console.log(`Currently serving ${client.guilds.size} servers`);
@@ -60,7 +60,7 @@ client.on('message', message => { //commands
       })
     }
     }
-    }
+}
 
 
   if(region.config === "EU") {
