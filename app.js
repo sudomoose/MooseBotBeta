@@ -93,4 +93,4 @@ client.on('guildMemberSpeaking', (member, speaking) => {
   }
 });
 
-client.on('guild')
+//client.on('guild');
