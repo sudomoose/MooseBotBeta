@@ -58,7 +58,7 @@ client.on('message', message => { //commands
     } else
 
   if(command === "help") {
-      message.user.sendMessage(`COMMANDS: \n \`${prefix}ping\` - returns the ping in milliseconds\n \`${prefix}about\` - returns info about MooseBot and it's creator \n \`${prefix}invite\` - returns link to invite MooseBot to your server`);
+      message.user.sendMessage(`COMMANDS: \n ${prefix}ping - returns the ping in milliseconds\n ${prefix}about - returns info about MooseBot and it's creator \n ${prefix}invite - returns link to invite MooseBot to your server`);
     } else
 
   if(command === "msmsg") {
