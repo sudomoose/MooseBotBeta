@@ -48,10 +48,9 @@ client.on('message', message => { //commands
 
   if(command === "ping") {
         const timeInMs = Date.now();
-        const ping = timeInMs - message.createdAtTimestamp;
+        const ping = message.createdAtTimestamp - message.createdAtTimestamp;
         console.log(`ping: ${ping}`);
         message.channel.sendMessage(`Pong! \`${ping}ms\``);
-
     } else
 
   if(command === "about") {
@@ -73,18 +72,25 @@ client.on('message', message => { //commands
 });
 
 
-
-client.on('GuildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
   let guild = member.guild;
   guild.defaultChannel.sendMessage(`Welcome **${member.user.username}** to **${member.guild}**!`);
 });
 
-
-client.on('GuildCreate', member => {
+client.on('guildCreate', member => {
   console.log("guildcreate funcionality is not yet complete! Please check back later");
   gguild.defaultChannel.sendMessage(`**${client.username}** has joined **${guild.name}**! Type \`${config.prefix}help\` for help`);
 });
 
-client.on('GuildDelete', guild => {
+client.on('guildDelete', guild => {
   console.log(`[${new Date()}]: Left ${guild.name}`);
 });
+
+client.on('guildMemberSpeaking', (member, speaking) => {
+  let guild = member.guild;
+  if (member.speaking) {
+    guild.defaultChannel.sendMessage(`**${member.user.username}** is speaking`);
+  }
+});
+
+client.on('guild')
