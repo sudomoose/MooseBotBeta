@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "Moosecoop",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "return-deep-diff": "^0.2.7"
+  }
 }
