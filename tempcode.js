@@ -61,3 +61,13 @@ if (message.content.startsWith(prefix + "$broadcast"))  //must use &$broadcast
 if(command) {
 
 }
+
+
+
+client.on('message', msg => {
+if(msg.content.startsWith(prefix+"ping1")) {
+  message.channel.sendMessage("Ping?")
+  .then((message) => {
+    message.edit(`Pong! ${message.createdTimestamp - msg.createdTimestamp}ms`);
+  });
+}

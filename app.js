@@ -10,6 +10,7 @@ client.on('ready', () => {
   console.log('MooseBot init successful');
   console.log(`Currently serving ${client.guilds.size} servers`);
   console.log(`[${new Date()}]:MooseBot init successful`);
+  client.user.setGame("Merry Christmas | &help", "http://twitch.tv/monstercat");
 });
 
 client.on('connect', () => {
@@ -47,9 +48,13 @@ client.on('message', message => { //commands
 
 
   if(command === "ping") {
-    msg.channel.sendMessage("Ping?").then((message) => {
-    message.edit(`Pong! ${message.createdTimestamp - msg.createdTimestamp}ms`);
-    });
+    const ping = Date.now();
+    message.channel.sendMessage("Ping?")
+    .then((message) => {
+    const Pong = message.createdTimestamp
+    const pingms = ping - Pong;
+    message.edit(`Pong! \`${pingms}ms\``);
+  });
   } else
 
   if(command === "about") {
