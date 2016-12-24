@@ -53,7 +53,7 @@ client.on('message', message => { //commands
     message.channel.sendMessage("Ping?")
     .then((message) => {
     const Pong = message.createdTimestamp
-    const pingms = ping - Pong;
+    const pingms = Pong - ping;
     message.edit(`Pong! \`${pingms}ms\``);
   });
   } else
