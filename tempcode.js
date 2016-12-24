@@ -1,6 +1,6 @@
 if(!message.content.startsWith(prefix)) return;
 if (message.content.startsWith(prefix + "$broadcast"))  //must use &$broadcast
-            if(message.author == user.id '199621462586425346')
+            if(message.author.id =='1996214625864)
             {
                 var message = command.splice("$&broadcast ").join(' '); //removes &$broadcast from the message
                 bot.Guilds.forEach((guild) => {
@@ -53,3 +53,11 @@ if (message.content.startsWith(prefix + "$broadcast"))  //must use &$broadcast
     });*/
 
   //} else
+
+
+
+
+  client.on('message', msg => {
+if(command) {
+
+}

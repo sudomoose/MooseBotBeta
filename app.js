@@ -47,18 +47,17 @@ client.on('message', message => { //commands
 
 
   if(command === "ping") {
-        const timeInMs = Date.now();
-        const ping = message.createdAtTimestamp - message.createdAtTimestamp;
-        console.log(`ping: ${ping}`);
-        message.channel.sendMessage(`Pong! \`${ping}ms\``);
-    } else
+    msg.channel.sendMessage("Ping?").then((message) => {
+    message.edit(`Pong! ${message.createdTimestamp - msg.createdTimestamp}ms`);
+    });
+  } else
 
   if(command === "about") {
         message.channel.sendMessage("MooseBot is a Discord Bot created by Moosecoop, a gamer, programmer, student and Discord enthusiast");
     } else
 
   if(command === "help") {
-      message.user.sendMessage(`COMMANDS: \n ${prefix}ping - returns the ping in milliseconds\n ${prefix}about - returns info about MooseBot and it's creator \n ${prefix}invite - returns link to invite MooseBot to your server`);
+      message.author.sendMessage(`COMMANDS: \n ${prefix}ping - returns the ping in milliseconds\n ${prefix}about - returns info about MooseBot and it's creator \n ${prefix}invite - returns link to invite MooseBot to your server`);
     } else
 
   if(command === "msmsg") {
@@ -84,13 +83,6 @@ client.on('guildCreate', member => {
 
 client.on('guildDelete', guild => {
   console.log(`[${new Date()}]: Left ${guild.name}`);
-});
-
-client.on('guildMemberSpeaking', (member, speaking) => {
-  let guild = member.guild;
-  if (member.speaking) {
-    guild.defaultChannel.sendMessage(`**${member.user.username}** is speaking`);
-  }
 });
 
 //client.on('guild');
