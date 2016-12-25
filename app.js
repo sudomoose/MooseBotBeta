@@ -151,6 +151,11 @@ client.on('channelCreate', channel => {
   console.log(`[${new Date()}]: Channel "${channel.name}" created in guild "${channel.guild}"`);
 }); 
 
+})
+
+
+/*
 //client.on('', => {});
 
 //client.on('guild');
+*/
