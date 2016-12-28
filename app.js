@@ -28,7 +28,7 @@ client.on('ready', () => {
   console.log('MooseBot init successful');
   console.log(`Currently serving ${client.guilds.size} servers`);
   console.log(`[${new Date()}]:MooseBot init successful`);
-  client.user.setGame("Merry Christmas | &help", "http://twitch.tv/monstercat");
+  client.user.setGame("Happy Holidays | &help", "http://twitch.tv/monstercat");
   client.user.setAvatar("./avatar.png");
 });
 
