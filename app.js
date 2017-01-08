@@ -99,11 +99,10 @@ client.on('ready', () =>
   console.log('MooseBot init successful');
   console.log(`Currently serving ${client.guilds.size} servers`);
   console.log(`[${new Date()}]:MooseBot init successful`);
-<<<<<<< HEAD
+  
   client.user.setGame("&help | &about", "http://twitch.tv/monstercat");
-=======
->>>>>>> c53de1291a3e3ee9e714992e700b7fd1d0aaa633
-  client.user.setAvatar("./avatar.png");
+
+  client.user.setAvatar("./avatar.jpg");
 });
 
 client.on('connect', () => 
