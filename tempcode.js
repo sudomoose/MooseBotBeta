@@ -71,3 +71,46 @@ if(msg.content.startsWith(prefix+"ping1")) {
     message.edit(`Pong! ${message.createdTimestamp - msg.createdTimestamp}ms`);
   });
 }
+
+
+
+storage.init({
+    dir:'relative/path/to/persist',
+    stringify: JSON.stringify,
+    parse: JSON.parse,
+    encoding: 'utf8',
+    logging: false,
+    continuous: true,
+    interval: false
+});
+
+
+/*storage.initSync();
+
+storage.init({
+    dir:'./node-persist/storage',
+    stringify: JSON.stringify,
+    parse: JSON.parse,
+    encoding: 'utf8',
+    logging: false,
+    continuous: true,
+    interval: false
+});
+
+if(storage.getItem('totalProgExecs') == 0 || storage.getItem('totalProgExecs') == null) {
+    storage.setItem('totalProgExecs', 1);
+  } else {
+    storage.setItem('totalProgExecs', storage.getItem('totalProgExecs') +1);
+  }
+
+if(storage.getItem('help') == null) {
+  storage.setItem('help', 0);
+}
+
+if(storage.getItem('about') == null) {
+  storage.setItem('about', 0);
+}
+
+if(storage.getItem('status') == null) {
+  storage.setItem('status', 0);
+}*/ 
